@@ -78,11 +78,43 @@ public:
 class Solution
 {
 public:
-    bool findTarget(struct Node *root, int k)
+    // bool findTarget(struct Node *root, int k)
+    // {
+    //     if (!root)
+    //     {
+    //         return NULL;
+    //     }
+
+    //     BSTIterator l(root, false); // left means for next element
+    //     BSTIterator r(root, true);  // right means for before element
+
+    //     int i = l.next();
+    //     int j = r.next();
+    //     while (i < j)
+    //     {
+    //         if (i + j == k)
+    //         {
+    //             cout << "Elements are: " << i << " " << j;
+    //             return true;
+    //         }
+    //         else if (i + j < k)
+    //         {
+    //             i = l.next();
+    //         }
+    //         else
+    //         {
+    //             j = r.next();
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    vector<pair<int, int>> findTarget(struct Node *root, int k)
     {
+        vector<pair<int, int>> ans;
         if (!root)
         {
-            return NULL;
+            return ans;
         }
 
         BSTIterator l(root, false); // left means for next element
@@ -94,8 +126,8 @@ public:
         {
             if (i + j == k)
             {
-                cout << "Elements are: " << i << " " << j;
-                return true;
+                ans.push_back({i, j});
+                return ans;
             }
             else if (i + j < k)
             {
@@ -106,7 +138,7 @@ public:
                 j = r.next();
             }
         }
-        return false;
+        return ans;
     }
 };
 
@@ -122,13 +154,21 @@ int main()
     int k = 9;
 
     Solution obj;
-    if (obj.findTarget(root, k))
+    // if (obj.findTarget(root, k))
+    // {
+    //     cout << "\nElements are found";
+    // }
+    // else
+    // {
+    //     cout << "\nElements are not found";
+    // }
+
+    vector<pair<int, int>> ans = obj.findTarget(root, k);
+
+    cout << "Elements are: ";
+    for (int i = 0; i < ans.size(); i++)
     {
-        cout << "\nElements are found";
-    }
-    else
-    {
-        cout << "\nElements are not found";
+        cout << ans[i].first << " " << ans[i].second;
     }
 
     return 0;
