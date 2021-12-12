@@ -23,4 +23,5 @@ g++ filename
 
 ## Documentation
 For more information, Please refer to the C++ [docs](https://en.cppreference.com/w/).<br>
-Click [here](https://www.geeksforgeeks.org/binary-tree-data-structure/) to know more about Tree Data Structure.
+Click [here](https://www.geeksforgeeks.org/binary-tree-data-structure/) to know more about Binary Tree.
+Click [here](https://www.geeksforgeeks.org/binary-search-tree-data-structure/) to know more about Binary Search Tree.
